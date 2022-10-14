@@ -1,6 +1,6 @@
 /* See LICENSE file for copyright and license details. */
 
-#include "colors/default.h"
+#include "colors/dracula.h"
 
 #define BROWSER				"brave-browser"		// default browser
 #define TERMINAL			"konsole"           // default terminal
