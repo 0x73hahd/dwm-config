@@ -15,7 +15,10 @@
 static const char dmenufont[]       = "monospace:size=10";
 static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "konsole", NULL };
-
+/* volume controls */
+static const char *increase_vol[]   = { "pactl", "set-sink-volume", "0", "+5%",     NULL };
+static const char *decrease_vol[] = { "pactl", "set-sink-volume", "0", "-5%",     NULL };
+static const char *mute_vol[] = { "pactl", "set-sink-mute",   "0", "toggle",  NULL };
 
 static const Key keys[] = {
 		/* modifier                     chain key   key        function        argument */
@@ -57,6 +60,10 @@ static const Key keys[] = {
 		{ MODKEY,                       XK_a,       XK_d,      spawn,          {.v = dmenucmd } },
 		{ MODKEY,                       XK_a,       XK_t,      spawn,          {.v = termcmd } },
 	    { MODKEY|ControlMask|ShiftMask, -1,         XK_q,      quit,           {1} },
+
+		{ 0,                       		-1, 		XF86XK_AudioRaiseVolume, spawn, 	   {.v = increase_vol } },
+		{ 0,                       		-1, 		XF86XK_AudioLowerVolume, spawn,        {.v = decrease_vol } },
+		{ 0,                       		-1,			XF86XK_AudioMute, spawn, 			   {.v = mute_vol } },
 };
 
 /* button definitions */
