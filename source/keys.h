@@ -1,5 +1,7 @@
 #include "layouts.h"
 
+#define TERMINAL	"konsole"           // default terminal 
+
 /* key definitions */
 #define MODKEY Mod1Mask
 #define TAGKEYS(CHAIN,KEY,TAG) \
@@ -14,7 +16,9 @@
 /* commands */
 static const char dmenufont[]       = "monospace:size=10";
 static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "konsole", NULL };
+static const char *termcmd[]  = { TERMINAL, NULL };
+static const char *spotify[]  = { "brave-browser", "--app=https://open.spotify.com/collection/tracks" };	// because I love music :D
+
 /* volume controls */
 static const char *increase_vol[]   = { "pactl", "set-sink-volume", "0", "+5%",     NULL };
 static const char *decrease_vol[] = { "pactl", "set-sink-volume", "0", "-5%",     NULL };
@@ -23,8 +27,8 @@ static const char *mute_vol[] = { "pactl", "set-sink-mute",   "0", "toggle",  NU
 static const Key keys[] = {
 		/* modifier                     chain key   key        function        argument */
 		{ MODKEY,                       -1,         XK_p,      spawn,          {.v = dmenucmd } },
-		{ MODKEY|ShiftMask,             -1,         XK_Return, spawn,          {.v = termcmd } },
-		{ MODKEY,                       -1,         XK_b,      togglebar,      {0} },
+		{ MODKEY,                       -1,         XK_t,      spawn,          {.v = termcmd } },	// default terminal
+		{ MODKEY|ShiftMask,             -1,         XK_h,      togglebar,      {0} },
 		{ MODKEY,                       -1,         XK_j,      focusstack,     {.i = +1 } },
 		{ MODKEY,                       -1,         XK_k,      focusstack,     {.i = -1 } },
 		{ MODKEY,                       -1,         XK_i,      incnmaster,     {.i = +1 } },
@@ -33,11 +37,13 @@ static const Key keys[] = {
 		{ MODKEY,                       -1,         XK_l,      setmfact,       {.f = +0.05} },
 		{ MODKEY,                       -1,         XK_Return, zoom,           {0} },
 		{ MODKEY,                       -1,         XK_Tab,    view,           {0} },
-		{ MODKEY|ShiftMask,             -1,         XK_c,      killclient,     {0} },
-		{ MODKEY,                       -1,         XK_t,      setlayout,      {.v = &layouts[0]} },
-		{ MODKEY,                       -1,         XK_f,      setlayout,      {.v = &layouts[1]} },
-		{ MODKEY,                       -1,         XK_m,      setlayout,      {.v = &layouts[2]} },
-		{ MODKEY,                       -1,         XK_space,  setlayout,      {0} },
+		{ MODKEY|ShiftMask,             -1,         XK_k,      killclient,     {0} },
+		
+		{ ControlMask,                  -1,         XK_t,      setlayout,      {.v = &layouts[0]} },
+		{ ControlMask,                  -1,         XK_f,      setlayout,      {.v = &layouts[1]} },
+		{ ControlMask,                  -1,         XK_m,      setlayout,      {.v = &layouts[2]} },
+		{ ControlMask,                  -1,         XK_space,  setlayout,      {0} },
+		
 		{ MODKEY|ShiftMask,             -1,         XK_space,  togglefloating, {0} },
 		{ MODKEY,                       -1,         XK_0,      view,           {.ui = ~0 } },
 		{ MODKEY|ShiftMask,             -1,         XK_0,      tag,            {.ui = ~0 } },
@@ -45,7 +51,21 @@ static const Key keys[] = {
 		{ MODKEY,                       -1,         XK_period, focusmon,       {.i = +1 } },
 		{ MODKEY|ShiftMask,             -1,         XK_comma,  tagmon,         {.i = -1 } },
 		{ MODKEY|ShiftMask,             -1,         XK_period, tagmon,         {.i = +1 } },
-		
+
+		{ MODKEY,                       XK_a,       XK_t,      spawn,          SHCMD("alacritty") },
+		{ MODKEY,                       -1,         XK_r,      spawn,          SHCMD("atril") },
+		{ MODKEY,                       XK_b,       XK_b,      spawn,          SHCMD("brave-browser") },
+		{ MODKEY,                       XK_v,       XK_c,      spawn,          SHCMD("code") },
+		{ MODKEY,                       -1,         XK_d,      spawn,          SHCMD("discord") },
+		{ MODKEY,                       XK_f,       XK_m,      spawn,          SHCMD("dolphin") },
+		{ MODKEY,                       -1,         XK_e,      spawn,          SHCMD("eclipse") },
+		{ MODKEY,                       -1,         XK_g,      spawn,          SHCMD("github") },
+		{ MODKEY,                       XK_i,       XK_j,      spawn,          SHCMD("intellij") },
+		{ MODKEY,                       XK_j,       XK_b,      spawn,          SHCMD("jetbrains-toolbox") },
+		{ MODKEY,                       XK_n,       XK_v,      spawn,          SHCMD("nvim") },
+		{ MODKEY|ShiftMask,             -1,         XK_s,      spawn,          SHCMD("spectacle") },
+		{ MODKEY,                       -1,         XK_s,      spawn,          {.v = spotify } },
+ 
 		TAGKEYS(                        -1,         XK_1,                      0)
 		TAGKEYS(                        -1,         XK_2,                      1)
 		TAGKEYS(                        -1,         XK_3,                      2)
@@ -56,10 +76,8 @@ static const Key keys[] = {
 		TAGKEYS(                        -1,         XK_8,                      7)
 		TAGKEYS(                        -1,         XK_9,                      8)
 		
-		{ MODKEY|ShiftMask,             -1,         XK_q,      quit,           {0} },
-		{ MODKEY,                       XK_a,       XK_d,      spawn,          {.v = dmenucmd } },
-		{ MODKEY,                       XK_a,       XK_t,      spawn,          {.v = termcmd } },
-	    { MODKEY|ControlMask|ShiftMask, -1,         XK_q,      quit,           {1} },
+		{ MODKEY|ShiftMask,             -1,         XK_x,      quit,           {0} },
+	    { MODKEY|ControlMask|ShiftMask, -1,         XK_r,      quit,           {1} },	// restart
 
 		{ 0,                       		-1, 		XF86XK_AudioRaiseVolume, spawn, 	   {.v = increase_vol } },
 		{ 0,                       		-1, 		XF86XK_AudioLowerVolume, spawn,        {.v = decrease_vol } },
