@@ -19,6 +19,10 @@ static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", col_gray
 static const char *termcmd[]  = { TERMINAL, NULL };
 static const char *spotify[]  = { "brave-browser", "--app=https://open.spotify.com/collection/tracks" };	// because I love music :D
 
+/* brightness control */
+static const char *inc_light[] = {"light", "-A", "5"};
+static const char *dec_light[] = {"light", "-U", "5"};
+
 /* volume controls */
 static const char *increase_vol[]   = { "pactl", "set-sink-volume", "0", "+5%",     NULL };
 static const char *decrease_vol[] = { "pactl", "set-sink-volume", "0", "-5%",     NULL };
@@ -82,6 +86,9 @@ static const Key keys[] = {
 		{ 0,                       		-1, 		XF86XK_AudioRaiseVolume, spawn, 	   {.v = increase_vol } },
 		{ 0,                       		-1, 		XF86XK_AudioLowerVolume, spawn,        {.v = decrease_vol } },
 		{ 0,                       		-1,			XF86XK_AudioMute, spawn, 			   {.v = mute_vol } },
+
+		{ 0,			                -1,       	XF86XK_MonBrightnessUp,	 spawn,	       {.v = inc_light} },
+	    { 0,				            -1,         XF86XK_MonBrightnessDown,spawn,	       {.v = dec_light} },
 };
 
 /* button definitions */
