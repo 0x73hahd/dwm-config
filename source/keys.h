@@ -1,6 +1,6 @@
 #include "layouts.h"
 
-#define TERMINAL	"konsole"           // default terminal 
+#define TERMINAL	"alacritty"           // default terminal 
 
 /* key definitions */
 #define MODKEY Mod1Mask
