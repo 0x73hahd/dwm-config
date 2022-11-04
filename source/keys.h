@@ -14,7 +14,7 @@
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
-static const char dmenufont[]       = "monospace:size=10";
+static const char dmenufont[] = "monospace:size=10";
 static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { TERMINAL, NULL };
 static const char *spotify[]  = { "brave-browser-beta", "--app=https://open.spotify.com/collection/tracks" };	// because I love music :D
@@ -61,10 +61,9 @@ static const Key keys[] = {
 		{ MODKEY,                       XK_b,       XK_b,      spawn,          SHCMD("brave-browser-beta") },
 		{ MODKEY,                       -1,         XK_d,      spawn,          SHCMD("discord") },
 		{ MODKEY,                       XK_f,       XK_m,      spawn,          SHCMD("dolphin") },
-		{ MODKEY,                       -1,         XK_g,      spawn,          SHCMD("github") },
-		{ MODKEY,                       XK_i,       XK_j,      spawn,          SHCMD("intellij") },
+		{ MODKEY,                       -1,         XK_g,      spawn,          SHCMD("github-desktop") },
 		{ MODKEY,                       XK_j,       XK_b,      spawn,          SHCMD("jetbrains-toolbox") },
-		{ MODKEY,                       XK_n,       XK_v,      spawn,          SHCMD("nvim") },
+		{ MODKEY,                       XK_n,       XK_v,      spawn,          SHCMD(TERMINAL " -e nvim") },
 		{ MODKEY|ShiftMask,             -1,         XK_s,      spawn,          SHCMD("spectacle") },
 		{ MODKEY,                       -1,         XK_s,      spawn,          {.v = spotify } },
  
@@ -79,14 +78,14 @@ static const Key keys[] = {
 		TAGKEYS(                        -1,         XK_9,                      8)
 		
 		{ MODKEY|ShiftMask,             -1,         XK_x,      quit,           {0} },
-	        { MODKEY|ControlMask|ShiftMask, -1,         XK_r,      quit,           {1} },	// restart
+	    { MODKEY|ControlMask|ShiftMask, -1,         XK_r,      quit,           {1} },	// restart
 
 		{ 0,                       		-1, 		XF86XK_AudioRaiseVolume, spawn, 	   {.v = increase_vol } },
 		{ 0,                       		-1, 		XF86XK_AudioLowerVolume, spawn,        {.v = decrease_vol } },
 		{ 0,                       		-1,	        XF86XK_AudioMute, spawn, 			   {.v = mute_vol } },
 
 		{ 0,			                -1,       	XF86XK_MonBrightnessUp,	 spawn,	       {.v = inc_light} },
-	        { 0,				        -1,             XF86XK_MonBrightnessDown,spawn,	       {.v = dec_light} },
+	    { 0,				            -1,         XF86XK_MonBrightnessDown,spawn,	       {.v = dec_light} },
 };
 
 /* button definitions */
