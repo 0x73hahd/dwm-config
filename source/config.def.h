@@ -3,12 +3,11 @@
 #include "colors/dracula.h"
 #include "keys.h"
 
-#define BROWSER				"brave-browser"		// default browser
-#define TERMINAL			"konsole"           // default terminal
+#define TERMINAL	"alacritty"              // default terminal
 
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
-static const unsigned int gappx     = 10;        /* gaps between windows */
+static const unsigned int gappx     = 10;       /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayonleft = 0;   	/* 0: systray in the right corner, >0: systray on left of status text */
@@ -17,9 +16,8 @@ static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display 
 static const int showsystray        = 1;     /* 0 means no systray */
 static const int showbar            = 1;     /* 0 means no bar */
 static const int topbar             = 1;     /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=12", "CodeNewRoman Nerd Font:size=12" };
+static const char *fonts[]          = { "monospace:size=11", "CodeNewRoman Nerd Font:size=11", "Noto Color Emoji:size=8" };
 static const int user_bh            = 8;        /* 2 is the default spacing around the bar's font */
-static const char dmenufont[]       = "monospace:size=10";
 
 /* tagging */
 //static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
@@ -33,5 +31,5 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ BROWSER,  NULL,       NULL,       1 << 8,       0,           -1 },
+	{ "brave-browser-beta",  NULL,       NULL,       1 << 8,       0,           -1 },
 };
