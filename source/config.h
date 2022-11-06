@@ -1,6 +1,6 @@
 /* See LICENSE file for copyright and license details. */
 
-#include "colors/dracula.h"
+#include "colors/my_color_scheme.h"
 #include "keys.h"
 
 #define TERMINAL	"alacritty"              // default terminal
