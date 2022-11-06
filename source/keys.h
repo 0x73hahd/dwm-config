@@ -3,7 +3,7 @@
 #define TERMINAL	"alacritty"           // default terminal 
 
 /* key definitions */
-#define MODKEY Mod1Mask
+#define MODKEY Mod4Mask
 #define TAGKEYS(CHAIN,KEY,TAG) \
 	{ MODKEY,                       CHAIN,    KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           CHAIN,    KEY,      toggleview,     {.ui = 1 << TAG} }, \
@@ -17,7 +17,6 @@
 static const char dmenufont[] = "monospace:size=10";
 static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { TERMINAL, NULL };
-static const char *spotify[]  = { "brave-browser-beta", "--app=https://open.spotify.com/collection/tracks" };	// because I love music :D
 
 /* brightness control */
 static const char *inc_light[] = {"light", "-A", "5"};
@@ -31,7 +30,7 @@ static const char *mute_vol[] = { "pactl", "set-sink-mute",   "0", "toggle",  NU
 static const Key keys[] = {
 		/* modifier                     chain key   key        function        argument */
 		{ MODKEY,                       -1,         XK_p,      spawn,          {.v = dmenucmd } },
-		{ MODKEY,                       -1,         XK_t,      spawn,          {.v = termcmd } },	// default terminal
+		{ MODKEY,                       -1,         XK_t,      spawn,          {.v = termcmd } }, // open default terminal on the current tag
 		{ MODKEY|ShiftMask,             -1,         XK_h,      togglebar,      {0} },
 		{ MODKEY,                       -1,         XK_j,      focusstack,     {.i = +1 } },
 		{ MODKEY,                       -1,         XK_k,      focusstack,     {.i = -1 } },
@@ -56,16 +55,17 @@ static const Key keys[] = {
 		{ MODKEY|ShiftMask,             -1,         XK_comma,  tagmon,         {.i = -1 } },
 		{ MODKEY|ShiftMask,             -1,         XK_period, tagmon,         {.i = +1 } },
 
-		{ MODKEY,                       XK_a,       XK_t,      spawn,          SHCMD("alacritty") },
-		{ MODKEY,                       -1,         XK_r,      spawn,          SHCMD("atril") },
-		{ MODKEY,                       XK_b,       XK_b,      spawn,          SHCMD("brave-browser-beta") },
-		{ MODKEY,                       -1,         XK_d,      spawn,          SHCMD("discord") },
-		{ MODKEY,                       XK_f,       XK_m,      spawn,          SHCMD("dolphin") },
-		{ MODKEY,                       -1,         XK_g,      spawn,          SHCMD("github-desktop") },
+		{ MODKEY,                       XK_a,       XK_t,      spawn,          SHCMD("xdotool key Super_L+9 && alacritty") }, // open alacritty on tag9
+		{ MODKEY,                       -1,         XK_r,      spawn,          SHCMD("xdotool key Super_L+6 && atril") },
+		{ MODKEY,                       XK_b,       XK_b,      spawn,          SHCMD("xdotool key Super_L+3 && brave-browser-beta") }, // open brave on tag3
+		{ MODKEY,                       -1,         XK_d,      spawn,          SHCMD("xdotool key Super_L+2 && discord") }, // open discord on tag2
+		{ MODKEY,                       XK_f,       XK_m,      spawn,          SHCMD("xdotool key Super_L+1 && dolphin") }, // open dolphin on tag1
+		{ MODKEY,                       -1,         XK_g,      spawn,          SHCMD("xdotool key Super_L+5 && github-desktop") }, // open github-desktop on tag5
 		{ MODKEY,                       XK_j,       XK_b,      spawn,          SHCMD("jetbrains-toolbox") },
 		{ MODKEY,                       XK_n,       XK_v,      spawn,          SHCMD(TERMINAL " -e nvim") },
-		{ MODKEY|ShiftMask,             -1,         XK_s,      spawn,          SHCMD("spectacle") },
-		{ MODKEY,                       -1,         XK_s,      spawn,          {.v = spotify } },
+		{ ControlMask|ShiftMask,        -1,         XK_s,      spawn,          SHCMD("spectacle") }, // take a screenshot
+		{ MODKEY,                       -1,         XK_s,      spawn,          SHCMD("xdotool key Super_L+8 && brave-browser-beta --app=https://open.spotify.com/collection/tracks") },	// open spotify on tag8 because I love music :D
+
  
 		TAGKEYS(                        -1,         XK_1,                      0)
 		TAGKEYS(                        -1,         XK_2,                      1)
