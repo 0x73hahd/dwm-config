@@ -18,7 +18,7 @@ static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display 
 static const int showsystray        = 1;     /* 0 means no systray */
 static const int showbar            = 1;     /* 0 means no bar */
 static const int topbar             = 1;     /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=11", "CodeNewRoman Nerd Font:size=11", "Noto Color Emoji:size=8" };
+static const char *fonts[]          = { "monospace:size=11", "CodeNewRoman Nerd Font:size=11", "Noto Color Emoji:size=8", "Cairo:size=10" };
 static const int user_bh            = 8;        /* 2 is the default spacing around the bar's font */
 
 /* tagging */
