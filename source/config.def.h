@@ -24,6 +24,7 @@ static const int user_bh            = 8;        /* 2 is the default spacing arou
 /* tagging */
 //static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 //static const char *tags[] = { " \u2680 ", " \u2681 ", " \u2682 ", " \u2683 ", " \u2684 ", " \u2685 ", " \u2661 ", " \u2665 ", "\u266c" };  	// Dice Faces
+//                               tag1        tag2        tag3        tag4        tag5        tag6        tag7        tag8        tag9 
 static const char *tags[] = { " \uf17c ", " \uf1d8 ", " \uf0ac ", " \uf109 ", " \uf09b ", " \uf02d ", " \uf044 ", " \uf1bc ", " \uf120 " };
 
 static const Rule rules[] = {
