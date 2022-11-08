@@ -10,7 +10,7 @@
 ### bar-height-spacing
   This patch allows you to change dwm's default bar height.
   ```c
-  tatic const int user_bh = 0;
+  static const int user_bh = 0;
   ```
 
 ### fullgabs
@@ -25,6 +25,15 @@
   static const Key keys[] = {
 /* modifier   chain key   key   function   argument */
   { MODKEY,     XK_a,       XK_t, spawn,     SHCMD("alacritty") },
+  }
+  ```
+### [movestack](https://dwm.suckless.org/patches/movestack/)
+This patch allows you to move clients around in the stack and swap them with the main window by include movestack.c source file and add keys for swapping.
+  ```c
+  #include "movestack.c"
+  static const Key keys[] = {
+	    { ShiftMask,     -1,      XK_x,      movestack,      {.i = +1 } },
+	    { ShiftMask,     -1,      XK_z,      movestack,      {.i = -1 } },
   }
   ```
 
