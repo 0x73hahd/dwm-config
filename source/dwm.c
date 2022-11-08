@@ -76,7 +76,7 @@
 
 /* enums */
 enum { CurNormal, CurResize, CurMove, CurLast }; /* cursor */
-enum { SchemeNorm, SchemeSel, SchemeUrg }; /* color schemes */
+enum { SchemeNorm, SchemeSel, SchemeUrg, SchemeTitle }; /* color schemes */
 enum { NetSupported, NetWMName, NetWMIcon, NetWMState, NetWMCheck, 
        NetSystemTray, NetSystemTrayOP, NetSystemTrayOrientation, NetSystemTrayOrientationHorz,
        NetWMFullscreen, NetActiveWindow, NetWMWindowType,
@@ -318,6 +318,7 @@ static int restart = 0;
 static int running = 1;
 static Cur *cursor[CurLast];
 static Clr **scheme;
+static Clr **tagscheme;
 static Display *dpy;
 static Drw *drw;
 static Monitor *mons, *selmon;
@@ -975,7 +976,7 @@ drawbar(Monitor *m)
 	x = 0;
 	for (i = 0; i < LENGTH(tags); i++) {
 		w = TEXTW(tags[i]);
-		drw_setscheme(drw, scheme[m->tagset[m->seltags] & 1 << i ? SchemeSel : SchemeNorm]);
+		drw_setscheme(drw, (m->tagset[m->seltags] & 1 << i ? tagscheme[i] : scheme[SchemeNorm]));
 		drw_text(drw, x, 0, w, bh, lrpad / 2, tags[i], urg & 1 << i);
 		if (occ & 1 << i)
 			drw_rect(drw, x + boxs, boxs, boxw, boxw,
@@ -989,7 +990,7 @@ drawbar(Monitor *m)
 
 	if ((w = m->ww - tw - stw - x) > bh) {
 		if (m->sel) {
-			drw_setscheme(drw, scheme[m == selmon ? SchemeSel : SchemeNorm]);
+			drw_setscheme(drw, scheme[m == selmon ? SchemeTitle : SchemeNorm]);
 			drw_text(drw, x, 0, w, bh, lrpad / 2 + (m->sel->icon ? m->sel->icw + ICONSPACING : 0), m->sel->name, 0);
 			if (m->sel->icon) drw_pic(drw, x + lrpad / 2, (bh - m->sel->ich) / 2, m->sel->icw, m->sel->ich, m->sel->icon);
 			if (m->sel->isfloating)
@@ -1421,6 +1422,8 @@ manage(Window w, XWindowAttributes *wa)
 	updatewindowtype(c);
 	updatesizehints(c);
 	updatewmhints(c);
+	c->x = c->mon->mx + (c->mon->mw - WIDTH(c)) / 2;
+	c->y = c->mon->my + (c->mon->mh - HEIGHT(c)) / 2;
 	XSelectInput(dpy, w, EnterWindowMask|FocusChangeMask|PropertyChangeMask|StructureNotifyMask);
 	grabbuttons(c, 0);
 	if (!c->isfloating)
@@ -2098,11 +2101,16 @@ setup(void)
 	cursor[CurResize] = drw_cur_create(drw, XC_sizing);
 	cursor[CurMove] = drw_cur_create(drw, XC_fleur);
 	/* init appearance */
-	scheme = ecalloc(LENGTH(colors) + 1, sizeof(Clr *));
+	if (LENGTH(tags) > LENGTH(tagsel))
+		die("too few color schemes for the tags");
+    scheme = ecalloc(LENGTH(colors) + 1, sizeof(Clr *));
 	scheme[LENGTH(colors)] = drw_scm_create(drw, colors[0], 3);
 	for (i = 0; i < LENGTH(colors); i++)
 		scheme[i] = drw_scm_create(drw, colors[i], 3);
-	/* init system tray */
+	tagscheme = ecalloc(LENGTH(tagsel), sizeof(Clr *));
+	for (i = 0; i < LENGTH(tagsel); i++)
+		tagscheme[i] = drw_scm_create(drw, tagsel[i], 2);
+    /* init system tray */
 	updatesystray();
 	/* init bars */
 	updatebars();

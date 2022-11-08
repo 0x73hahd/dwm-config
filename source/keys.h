@@ -1,4 +1,5 @@
 #include "layouts.h"
+#include "movestack.c"
 
 #define TERMINAL	"alacritty"           // default terminal 
 
@@ -36,6 +37,8 @@ static const Key keys[] = {
 		{ MODKEY,                       -1,         XK_k,      focusstack,     {.i = -1 } },
 		{ MODKEY,                       -1,         XK_i,      incnmaster,     {.i = +1 } },
 		{ MODKEY,                       -1,         XK_d,      incnmaster,     {.i = -1 } },
+	    { ShiftMask,                    -1,         XK_x,      movestack,      {.i = +1 } },
+	    { ShiftMask,                    -1,         XK_z,      movestack,      {.i = -1 } },
 		{ MODKEY,                       -1,         XK_h,      setmfact,       {.f = -0.05} },
 		{ MODKEY,                       -1,         XK_l,      setmfact,       {.f = +0.05} },
 		{ MODKEY,                       -1,         XK_Return, zoom,           {0} },
