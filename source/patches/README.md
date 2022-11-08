@@ -1,25 +1,25 @@
 ## patches that I used on dwm
 
-### autosart
+### [autosart](https://dwm.suckless.org/patches/autostart/)
   This patch allows programs to autostart when you login to dwm.
   you can create autostart.sh file on the following directories:
   1. $HOME/.dwm
   2. $HOME/.local/share/dwm
-  3. $HOME/.dwm
+  3. $XDG_DATA_HOME/dwm
 
-### bar-height-spacing
+### [bar-height-spacing](https://dwm.suckless.org/patches/bar_height/)
   This patch allows you to change dwm's default bar height.
   ```c
   static const int user_bh = 0;
   ```
 
-### fullgabs
+### [fullgabs](https://dwm.suckless.org/patches/fullgaps/)
   This patch adds gaps between client windows.
   ```c
   static const unsigned int gappx = 5; /* gaps between windows */
   ```
 
-### keychain
+### [keychain](https://dwm.suckless.org/patches/keychain/)
   This patch allows you to chain multiple key bindings together. for example Mod+a+t to open alacritty terminal.
   ```c
   static const Key keys[] = {
@@ -37,10 +37,10 @@ This patch allows you to move clients around in the stack and swap them with the
   }
   ```
 
-### pertag
+### [pertag](https://dwm.suckless.org/patches/pertag/)
   This patch keeps layout, mwfact, barpos and nmaster per tag.
 
-###  raimbowtags
+###  [raimbowtags](https://dwm.suckless.org/patches/rainbowtags/)
   Allows each tag to be an independent colour when selected.
   ```c
   static const char tag1[]            = "#939393";
@@ -66,13 +66,13 @@ This patch allows you to move clients around in the stack and swap them with the
 };
   ```
 
-###  resarting
+###  [resarting](https://dwm.suckless.org/patches/restartsig/)
   This patch allows you to restart dwm.
 
-###  status2d-systray
+###  [status2d-systray](https://dwm.suckless.org/patches/status2d/)
   This patch allows colors in your dwm status bar with system tray implementation.
   
-###  titlecolor
+###  [titlecolor](https://dwm.suckless.org/patches/titlecolor/)
   This patch adds a new color scheme used by the window title in the bar.
   ```c
   static const char *colors[][3]      = {
@@ -80,7 +80,7 @@ This patch allows you to move clients around in the stack and swap them with the
   }
   ```
 
-###  urg-border
+### [urg-border](https://dwm.suckless.org/patches/urgentborder/)
   This patch makes borders of urgent windows a different color.
   
   ```c
@@ -90,7 +90,7 @@ This patch allows you to move clients around in the stack and swap them with the
   }
   ```
 
-###  winicon
+###  [winicon](https://dwm.suckless.org/patches/winicon/)
   This patch enables dwm to show window icons.
    
   ![](screenshots/display-discord-icon.png)
