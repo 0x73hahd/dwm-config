@@ -60,7 +60,7 @@ static const Key keys[] = {
 
 		{ MODKEY,                       XK_a,       XK_t,      spawn,          SHCMD("xdotool key Super_L+9 && alacritty") }, // open alacritty on tag9
 		{ MODKEY,                       -1,         XK_r,      spawn,          SHCMD("xdotool key Super_L+6 && atril") },
-		{ MODKEY,                       XK_b,       XK_b,      spawn,          SHCMD("xdotool key Super_L+3 && brave-browser-beta") }, // open brave on tag3
+		{ MODKEY,                       XK_b,       XK_b,      spawn,          SHCMD("xdotool key Super_L+3 && brave") }, // open brave on tag3
 		{ MODKEY,                       -1,         XK_d,      spawn,          SHCMD("xdotool key Super_L+2 && discord") }, // open discord on tag2
 		{ MODKEY,                       XK_f,       XK_m,      spawn,          SHCMD("xdotool key Super_L+1 && dolphin") }, // open dolphin on tag1
 		{ MODKEY,                       -1,         XK_g,      spawn,          SHCMD("xdotool key Super_L+5 && github-desktop") }, // open github-desktop on tag5
@@ -68,7 +68,7 @@ static const Key keys[] = {
         { MODKEY,                       XK_j,       XK_b,      spawn,          SHCMD("jetbrains-toolbox") },
 		{ MODKEY,                       XK_n,       XK_v,      spawn,          SHCMD(TERMINAL " -e nvim") },
 		{ ControlMask|ShiftMask,        -1,         XK_s,      spawn,          SHCMD("spectacle") }, // take a screenshot
-		{ MODKEY,                       -1,         XK_s,      spawn,          SHCMD("xdotool key Super_L+8 && brave-browser-beta --app=https://open.spotify.com/collection/tracks") },	// open spotify on tag8 because I love music :D
+		{ MODKEY,                       -1,         XK_s,      spawn,          SHCMD("xdotool key Super_L+8 && brave --app=https://open.spotify.com/collection/tracks") },	// open spotify on tag8 because I love music :D
 
  
 		TAGKEYS(                        -1,         XK_1,                      0)
