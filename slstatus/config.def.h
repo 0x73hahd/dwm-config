@@ -10,18 +10,19 @@ static const char unknown_str[] = "n/a";
 #define MAXLEN 2048
 
 static const struct arg args[] = {
-	/* function format          argument */
-    { battery_perc,   "%s%%",   "BAT0"     },
-	{ battery_state,  " %s |",    "BAT0"    },
+	/* function format                      argument */
+    { battery_perc,     "%s%%",        "BAT0" },
+	{ battery_state,    " %s |",       "BAT0" },
 
-    { temp, " %s\u00b0C ", "/sys/class/thermal/thermal_zone0/temp" },
+    { temp,             " %s\u00b0C ", "/sys/class/thermal/thermal_zone0/temp" },
 
-    { cpu_perc,      "| %s%% ",      NULL     	   },
-    { cpu_freq,      " %s |",     NULL           },
+    { cpu_perc,         "| CPU %s%% ", NULL },
+    { cpu_freq,         " %s |",       NULL },
 	
-    { datetime,      " %s |",      "%F %T"        },
+    { datetime,         " %s  ",      "%F" },
+    { datetime,         " %s  |",     "%T" },
 
-    { keymap,        " %s ",    NULL	      },
+    { keymap,           " %s  ",      NULL },
 };
 
 /*
