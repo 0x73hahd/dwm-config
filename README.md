@@ -1,9 +1,13 @@
 # ⁩ 0x73hahd's dwm ♡⁩
- 
-###  Screenshots
+
+This repo for DWM configuration, it's contains different themes to switch between them.
+
+## Tokyo DWM Theme
+A dark theme for DWM 🌃🌆
 
 ![](screenshots/dwm.png)
 
+![](screenshots/tokyo-dwm-bar.png)
 
 ## Toy Story DWM Theme
 A dwm theme that I create reminds me of my childhood days 🙃❤
