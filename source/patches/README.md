@@ -7,6 +7,9 @@
   2. $HOME/.local/share/dwm
   3. $XDG_DATA_HOME/dwm
 
+### [alwayscenter](https://dwm.suckless.org/patches/alwayscenter/)
+  This patch make all floating windows are centered.
+
 ### [bar-height-spacing](https://dwm.suckless.org/patches/bar_height/)
   This patch allows you to change dwm's default bar height.
   ```c
