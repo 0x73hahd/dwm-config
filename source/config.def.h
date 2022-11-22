@@ -1,6 +1,6 @@
 /* See LICENSE file for copyright and license details. */
 
-#include "colors/my_color_scheme.h"
+#include "colors/toy_story.h"
 #include "keys.h"
 
 #define TERMINAL	"alacritty"              // default terminal
@@ -34,6 +34,6 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "brave-browser-beta",   NULL,       NULL,         1 << 8,       0,          -1 },
+	{ "brave",   NULL,       NULL,         1 << 8,       0,          -1 },
 	{ "gwenview", NULL,       NULL,       0,            1,           -1 },
 };
