@@ -15,6 +15,10 @@
   ```c
   static const int user_bh = 0;
   ```
+### [fakefullscreen](https://dwm.suckless.org/patches/fakefullscreen/)
+  This patch enables fullscreen on a small secondary screen while having other windows.
+
+  ![](screenshots/fake-fullscreen-patch.png)
 
 ### [fullgabs](https://dwm.suckless.org/patches/fullgaps/)
   This patch adds gaps between client windows.
