@@ -1,6 +1,13 @@
-# ⁩ 0x73hahd's dwm ♡⁩
+# ⁩ 0x73hahd's DWM 
 
-This repo for DWM configuration, it's contains different themes to switch between them.
+This repo is for DWM configuration and contains different themes to switch between them.
+
+## Calm Room DWM Theme
+A DWM theme gives a feeling of calm ♡⁩ 
+
+![](screenshots/dwm-calm-room-theme.png)
+
+![](screenshots/calm-room-dwm-bar.png)
 
 ## Tokyo DWM Theme
 A dark theme for DWM 🌃🌆

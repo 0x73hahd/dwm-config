@@ -1,6 +1,6 @@
 /* See LICENSE file for copyright and license details. */
 
-#include "colors/toy_story.h"
+#include "colors/calm-room.h"
 #include "keys.h"
 
 #define TERMINAL	"alacritty"              // default terminal
