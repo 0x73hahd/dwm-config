@@ -61,6 +61,9 @@ static const Key keys[] = {
 		{ MODKEY|ShiftMask,             -1,         XK_comma,  tagmon,         {.i = -1 } },
 		{ MODKEY|ShiftMask,             -1,         XK_period, tagmon,         {.i = +1 } },
 
+        { MODKEY,                       -1,         XK_m,      spawn,          SHCMD("fsm-launcher") }, // open rofi with full screen menu theme
+        { MODKEY,                       -1,         XK_l,      spawn,          SHCMD("space-gate-launcher") }, // open rofi with space gate theme
+
 		{ MODKEY,                       XK_a,       XK_t,      spawn,          SHCMD("xdotool key Super_L+9 && alacritty") }, // open alacritty on tag9
 		{ MODKEY,                       -1,         XK_r,      spawn,          SHCMD("xdotool key Super_L+6 && atril") },
 		{ MODKEY,                       XK_b,       XK_b,      spawn,          SHCMD("xdotool key Super_L+3 && brave") }, // open brave on tag3
