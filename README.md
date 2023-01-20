@@ -9,6 +9,12 @@ A DWM theme gives a feeling of calm ♡⁩
 
 ![](screenshots/calm-room-dwm-bar.png)
 
+## Color Space
+
+![](screenshots/alacritty-terminals.png)
+
+![](screenshots/alacritty-terminal.png)
+
 ## Tokyo DWM Theme
 A dark theme for DWM 🌃🌆
 
