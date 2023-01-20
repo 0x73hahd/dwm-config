@@ -7,21 +7,21 @@ A DWM theme gives a feeling of calm ♡⁩
 
 ![](screenshots/dwm-calm-room-theme.png)
 
-![](screenshots/calm-room-dwm-bar.png)
+## Color Space
+
+![](screenshots/alacritty-terminals.png)
+
+![](screenshots/alacritty-terminal.png)
 
 ## Tokyo DWM Theme
 A dark theme for DWM 🌃🌆
 
 ![](screenshots/dwm.png)
 
-![](screenshots/tokyo-dwm-bar.png)
-
 ## Toy Story DWM Theme
 A dwm theme that I create reminds me of my childhood days 🙃❤
 
 ![](screenshots/dwm-toy-story-theme.png)
-
-![](screenshots/toy-story-dwm-bar.png)
 
 ---
 
