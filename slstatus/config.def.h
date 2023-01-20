@@ -12,9 +12,7 @@ static const char unknown_str[] = "n/a";
 static const struct arg args[] = {
 	/* function format                      argument */
     { battery_perc,     "%s%%",        "BAT0" },
-	{ battery_state,    " %s |",       "BAT0" },
-
-    { temp,             " %s\u00b0C ", "/sys/class/thermal/thermal_zone0/temp" },
+	{ battery_state,    " %s ",       "BAT0" },
 
     { cpu_perc,         "| CPU %s%% ", NULL },
     { cpu_freq,         " %s |",       NULL },
