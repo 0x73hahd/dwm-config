@@ -70,6 +70,7 @@ static const Key keys[] = {
 		{ MODKEY,                       -1,         XK_d,      spawn,          SHCMD("xdotool key Super_L+2 && discord") }, // open discord on tag2
 		{ MODKEY,                       XK_f,       XK_m,      spawn,          SHCMD("xdotool key Super_L+1 && dolphin") }, // open dolphin on tag1
 		{ MODKEY,                       -1,         XK_g,      spawn,          SHCMD("xdotool key Super_L+5 && github-desktop") }, // open github-desktop on tag5
+        { MODKEY,                       -1,         XK_v,      spawn,          SHCMD("pavucontrol") },
 	    { MODKEY,                       XK_i,       XK_v,      spawn,          SHCMD("gwenview") },
         { MODKEY,                       XK_j,       XK_b,      spawn,          SHCMD("jetbrains-toolbox") },
 		{ MODKEY,                       XK_n,       XK_v,      spawn,          SHCMD(TERMINAL " -e nvim") },
